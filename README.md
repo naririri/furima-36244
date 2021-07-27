@@ -17,7 +17,6 @@
 
 - has_many :items
 - has_many :orders
-- has_one  :address
 
 
 ## itemsテーブル
@@ -29,7 +28,7 @@
 | price        | integer    | null: false                    |
 | condition_id | integer    | null: false                    |
 | category_id  | integer    | null: false                    |
-| text         | string     | null: false                    |
+| info         | text       | null: false                    |
 | postage_id   | integer    | null: false                    |
 | region_id    | integer    | null: false                    |
 | post_date_id | integer    | null: false                    |
@@ -46,9 +45,7 @@
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
-| buyer     | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
-| order_log |            |                                | 
 
 ### Association
 
