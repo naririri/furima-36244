@@ -2,14 +2,16 @@
 
 ## usersテーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------- | ----------- |
-| nick_name          | string  | null: false |
-| email              | string  | null: false |
-| encrypted_password | string  | null: false |
-| name               | string  | null: false |
-| reading_name       | string  | null: false |
-| birthday           | integer | null: false |
+| Column             | Type    | Options                   |
+| ------------------ | ------- | ------------------------- |
+| nick_name          | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| last_name          | string  | null: false               |
+| first_name         | string  | null: false               |
+| reading_first_name | string  | null: false               |
+| reading_last_name  | string  | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 
@@ -20,14 +22,17 @@
 
 ## itemsテーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| price      | integer    | null: false                    |
-| image      | 
-| condition  | string     | null: false                    |
-| category   | string     | null: false                    |
-| text       | string     | null: false                    |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user         | references | null: false, foreign_key: true |
+| name         | string     | null: false                    |
+| price        | integer    | null: false                    |
+| condition_id | integer    | null: false                    |
+| category_id  | integer    | null: false                    |
+| text         | string     | null: false                    |
+| postage_id   | integer    | null: false                    |
+| region_id    | integer    | null: false                    |
+| post_date_id | integer    | null: false                    |
 
 ### Association
 
@@ -47,24 +52,24 @@
 
 ### Association
 
-- has_one :user
-- has_one :item
-- has_one :address
+- belongs_to :user
+- belongs_to :item
+- has_one    :address
 
 
 ## addressesテーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| user          | references | null: false, foreign_key: true |
 | order         | references | null: false, foreign_key: true |
 | postal_number | integer    | null: false                    |
-| prefecture    | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
+| house_number  | string     | null: false                    |
 | mobile_number | integer    | null: false                    |
 
 ### Association
 
-- has_one :user
-- has_one :item
-- has_one :order
+- belongs_to :user
+- belongs_to :item
+- has_one    :order
