@@ -37,7 +37,6 @@
 
 - belongs_to :user
 - has_one    :order
-- has_one    :address
 
 
 ## ordersテーブル
@@ -59,14 +58,13 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | order         | references | null: false, foreign_key: true |
-| postal_number | integer    | null: false                    |
+| postal_number | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
+| building      | string     |                                |
 | mobile_number | integer    | null: false                    |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
-- has_one    :order
+- belongs_to :order
