@@ -21,17 +21,17 @@
 
 ## itemsテーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| name         | string     | null: false                    |
-| price        | integer    | null: false                    |
-| condition_id | integer    | null: false                    |
-| category_id  | integer    | null: false                    |
-| info         | text       | null: false                    |
-| postage_id   | integer    | null: false                    |
-| region_id    | integer    | null: false                    |
-| post_date_id | integer    | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| name          | string     | null: false                    |
+| price         | integer    | null: false                    |
+| condition_id  | integer    | null: false                    |
+| category_id   | integer    | null: false                    |
+| info          | text       | null: false                    |
+| postage_id    | integer    | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| post_date_id  | integer    | null: false                    |
 
 ### Association
 
@@ -63,7 +63,7 @@
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building      | string     |                                |
-| mobile_number | integer    | null: false                    |
+| mobile_number | string     | null: false                    |
 
 ### Association
 
