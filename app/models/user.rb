@@ -8,10 +8,14 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'
   with_options presence: true do
     validates :nick_name
-    validates :last_name,          format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' }
-    validates :first_name,         format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' }
-    validates :reading_last_name,  format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' }
-    validates :reading_first_name, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' }
     validates :birthday
+  end
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' } do
+    validates :last_name          
+    validates :first_name
+  end
+  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' } do
+    validates :reading_last_name  
+    validates :reading_first_name
   end
 end
