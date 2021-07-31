@@ -22,4 +22,6 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :post_date_id
   end
+
+  validates_inclusion_of :price, in: 300..9999999
 end
