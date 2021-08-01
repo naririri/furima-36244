@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :price
   end
 
-  with_options numericality: { other_than: 1 , message: "can't be blank"} do
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :condition_id
     validates :postage_id
@@ -23,5 +23,5 @@ class Item < ApplicationRecord
     validates :post_date_id
   end
 
-  validates_inclusion_of :price, in: 300..9999999
+  validates_inclusion_of :price, in: 300..9_999_999
 end
