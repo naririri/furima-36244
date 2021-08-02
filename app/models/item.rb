@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :info
-    validates :price, inclusion: {in: 300..9_999_999, message: "is out of setting range" }
+    validates :price, inclusion: { in: 300..9_999_999, message: 'is out of setting range' }
   end
 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
@@ -23,6 +23,5 @@ class Item < ApplicationRecord
     validates :post_date_id
   end
 
-  validates :price, numericality: {only_integer: true, message: 'is invalid. Input half width characters' }
-
+  validates :price, numericality: { only_integer: true, message: 'is invalid. Input half width characters' }
 end
