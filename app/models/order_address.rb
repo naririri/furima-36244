@@ -3,16 +3,17 @@ class OrderAddress
   attr_accessor :postal_number, :prefecture_id, :city, :house_number, :building, :mobile_number, :user_id, :item_id, :order_id
 
   with_options presence: true do
-    validates :postal_number
     validates :city
     validates :house_number
-    validates :mobile_number
     validates :user_id
     validates :item_id
     validates :order_id
   end
 
+  validates :mobile_number, presence: true, format: { with: /\A\d{10,11}\z/}
+  validates :postal_number, presence: true, format: { with: /\A\d{3}[-]\d{4}\z/}
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+
 
   def save
     @order = Order.create(user_id: user_id, item_id: item_id)
