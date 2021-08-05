@@ -4,7 +4,8 @@ FactoryBot.define do
     city          { '大阪市' }
     house_number  { 'a-1' }
     mobile_number { '09098765432' }
+    building      { 'トキワ荘' }
     prefecture_id { 2 }
-    order_id      { 99 }
+    token         {"tok_abcdefghijk00000000000000000"}
   end
 end
