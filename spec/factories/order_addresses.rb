@@ -6,6 +6,6 @@ FactoryBot.define do
     mobile_number { '09098765432' }
     building      { 'トキワ荘' }
     prefecture_id { 2 }
-    token         {"tok_abcdefghijk00000000000000000"}
+    token         { 'tok_abcdefghijk00000000000000000' }
   end
 end

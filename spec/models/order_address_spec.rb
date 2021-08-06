@@ -21,7 +21,7 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     context '内容に不備がある場合' do
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
@@ -36,13 +36,13 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_numberにハイフンが無いと購入できないこと' do
         @order_address.postal_number = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal number is invalid")
+        expect(@order_address.errors.full_messages).to include('Postal number is invalid')
       end
 
       it 'postal_numberが全角数字だと購入できないこと' do
         @order_address.postal_number = '１２３-４５６７'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal number is invalid")
+        expect(@order_address.errors.full_messages).to include('Postal number is invalid')
       end
 
       it 'prefectureが空だと購入できないこと' do
@@ -78,27 +78,26 @@ RSpec.describe OrderAddress, type: :model do
       it 'mobile_numberがハイフン有りだと購入できないこと' do
         @order_address.mobile_number = '090-8765-4321'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Mobile number is invalid")
+        expect(@order_address.errors.full_messages).to include('Mobile number is invalid')
       end
 
       it 'mobile_numberが９桁だと購入できないこと' do
         @order_address.mobile_number = '090123456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Mobile number is invalid")
+        expect(@order_address.errors.full_messages).to include('Mobile number is invalid')
       end
 
       it 'mobile_numberが１２桁だと購入できないこと' do
         @order_address.mobile_number = '090987654321'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Mobile number is invalid")
+        expect(@order_address.errors.full_messages).to include('Mobile number is invalid')
       end
 
       it 'mobile_numberが全角数字だと購入できないこと' do
         @order_address.mobile_number = '０９０１２３４５６７８'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Mobile number is invalid")
+        expect(@order_address.errors.full_messages).to include('Mobile number is invalid')
       end
-
     end
   end
 end
