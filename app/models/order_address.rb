@@ -19,6 +19,5 @@ class OrderAddress
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(postal_number: postal_number, prefecture_id: prefecture_id, city: city, house_number: house_number,
                    building: building, mobile_number: mobile_number, order_id: order.id)
-    # Address.create(postal_number: postal_number, prefecture_id: prefecture_id, city: city, house_number: house_number, building: building, mobile_number: mobile_number, user_id: user_id, item_id: item_id)
   end
 end
