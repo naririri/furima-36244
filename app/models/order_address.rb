@@ -11,9 +11,9 @@ class OrderAddress
     validates :token
   end
 
-  validates :mobile_number, presence: true, format: { with: /\A\d{10,11}\z/ }
-  validates :postal_number, presence: true, format: { with: /\A\d{3}-\d{4}\z/ }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :mobile_number, presence: true, format: { with: /\A\d{10,11}\z/, message: 'は半角数字（ハイフンなし）で入力してください' }
+  validates :postal_number, presence: true, format: { with: /\A\d{3}-\d{4}\z/, message: 'は半角数字（ハイフンあり）で入力してください' }
+  validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
